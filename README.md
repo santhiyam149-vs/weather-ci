@@ -25,7 +25,8 @@ Every commit pushed to any branch or proposed through a pull request automatical
 - **Frontend Framework:** React 19 (JavaScript / JSX)
 - **Build Tool & Dev Server:** Vite 8
 - **Linter & Code Quality:** ESLint 10 (with React Hooks and React Refresh plugins)
-- **Testing Framework:** Vitest 5 & jsdom
+- **Testing Framework:** Jest 30 & jest-environment-jsdom
+- **Babel Transpiler:** Babel (`@babel/preset-env`, `@babel/preset-react`, `babel-jest`)
 - **UI Component Testing:** React Testing Library (`@testing-library/react`, `@testing-library/jest-dom`, `@testing-library/user-event`)
 - **CI/CD Platform:** GitHub Actions (`ubuntu-latest` runner)
 - **Public Weather API:** Open-Meteo Geocoding and Weather Forecast APIs
@@ -117,7 +118,7 @@ npm run lint
 ---
 
 ## 11. Running Automated Tests
-Run the component test suite using React Testing Library and Vitest in non-interactive CI mode:
+Run the component test suite using Jest and React Testing Library:
 ```bash
 npm test
 ```
@@ -161,7 +162,7 @@ Each workflow execution runs on an isolated Ubuntu virtual environment (`ubuntu-
 | **2 & 3** | **Set up Node.js & npm caching** | `actions/setup-node@v4` (`node-version: 22`, `cache: 'npm'`) | Provisions Node.js 22 LTS and restores cached `~/.npm` packages to accelerate builds. |
 | **4** | **Install dependencies** | `npm ci` | Performs a clean, reproducible installation of locked dependencies. |
 | **5** | **Run ESLint** | `npm run lint` | Runs ESLint to verify code quality, hooks rules, and coding standards. |
-| **6** | **Run component tests** | `npm test` | Runs the automated test suite non-interactively using Vitest and React Testing Library. |
+| **6** | **Run component tests** | `npm test` | Runs the automated test suite non-interactively using Jest and React Testing Library. |
 | **7** | **Build production application** | `npm run build` | Compiles and bundles production static assets using Vite into `dist/`. |
 | **8** | **Upload production build artifact** | `actions/upload-artifact@v4` | Packages and uploads `dist/` as a verifiable build artifact named `weather-dashboard-build`. |
 
@@ -169,12 +170,14 @@ If any step fails (lint error, failing test, build error), the workflow terminat
 
 ---
 
-## 14. Testing Framework Selection: Vitest with React Testing Library
-While traditional React projects historically utilized Jest, modern Vite applications leverage **Vitest** paired with **React Testing Library**:
-- **Native Vite ESM Integration:** Seamlessly processes ES modules, JSX, and CSS imports (`import './App.css'`) without requiring complex Babel transpilers or `identity-obj-proxy` mock wrappers.
-- **Fast Execution & Low Overhead:** Uses the existing Vite pipeline and `jsdom` for browser DOM simulation.
-- **Full RTL Compatibility:** Fully compatible with `@testing-library/react`, `@testing-library/jest-dom`, and `@testing-library/user-event` with identical matcher syntax (`toBeInTheDocument()`, `toHaveTextContent()`, etc.).
-- **Zero-Watch CI Execution:** `npm test` runs `vitest run`, completing in a single pass without interactive prompt hanging in headless CI runners.
+## 14. Testing Framework Configuration: Jest with React Testing Library
+The testing framework is configured using **Jest** and **React Testing Library**:
+- **Babel Integration:** Configured via `babel.config.json` with `@babel/preset-env` and `@babel/preset-react` (with `{ "runtime": "automatic" }`) to transpile modern ES modules and JSX into code Jest executes in Node.js.
+- **Environment Simulation:** Configured with `jest-environment-jsdom` to emulate browser DOM APIs.
+- **CSS and Asset Mocking:** Configured via `jest.config.js` with `moduleNameMapper` mapping `.css` imports to `__mocks__/styleMock.js`, preventing syntax errors when importing stylesheets (`import './App.css'`).
+- **DOM Assertions:** Enhanced with `@testing-library/jest-dom` imported in `src/setupTests.js` for custom matchers (`toBeInTheDocument()`, `toBeVisible()`, `toHaveTextContent()`, `toHaveValue()`).
+- **Fetch Mocking:** `globalThis.fetch` is initialized in `src/setupTests.js` and mocked using `jest.spyOn(globalThis, 'fetch')` across all test scenarios without making live external API requests.
+- **Non-Interactive Execution:** `npm test` runs `jest` in single-run mode for predictable CI automation.
 
 ---
 

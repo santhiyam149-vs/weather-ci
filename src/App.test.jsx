@@ -1,15 +1,16 @@
-import { describe, test, expect, vi, beforeEach, afterEach } from 'vitest';
 import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import App from './App.jsx';
 
 describe('Weather Forecast Dashboard', () => {
   beforeEach(() => {
-    vi.restoreAllMocks();
+    jest.clearAllMocks();
+    jest.restoreAllMocks();
   });
 
   afterEach(() => {
-    vi.restoreAllMocks();
+    jest.clearAllMocks();
+    jest.restoreAllMocks();
   });
 
   // TEST 1: SEARCH BOX
@@ -34,7 +35,7 @@ describe('Weather Forecast Dashboard', () => {
     const user = userEvent.setup();
 
     // Mock geocoding API to return no matching results
-    vi.spyOn(globalThis, 'fetch').mockResolvedValueOnce({
+    jest.spyOn(globalThis, 'fetch').mockResolvedValueOnce({
       ok: true,
       json: async () => ({ results: [] }),
     });
@@ -79,7 +80,7 @@ describe('Weather Forecast Dashboard', () => {
       },
     };
 
-    const fetchSpy = vi.spyOn(globalThis, 'fetch')
+    const fetchSpy = jest.spyOn(globalThis, 'fetch')
       .mockResolvedValueOnce({
         ok: true,
         json: async () => mockGeoData,
@@ -131,7 +132,7 @@ describe('Weather Forecast Dashboard', () => {
   test('displays an error message when the geocoding service network request fails', async () => {
     const user = userEvent.setup();
 
-    vi.spyOn(globalThis, 'fetch').mockRejectedValueOnce(
+    jest.spyOn(globalThis, 'fetch').mockRejectedValueOnce(
       new Error('Unable to connect to the weather service.')
     );
 
