@@ -141,6 +141,3 @@ function App() {
   );
 }
 
-test('Weather dashboard shows incorrect temperature', () => {
-  expect(25).toBe(30);
-});
