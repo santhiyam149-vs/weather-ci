@@ -84,7 +84,7 @@ function App() {
         <p className="subtitle">
           Find the current weather in any city.
         </p>
-<p>CI Testing - Version 2</p>npm 
+
         <form className="search-form" onSubmit={searchWeather}>
           <input
             aria-label="Search city"
