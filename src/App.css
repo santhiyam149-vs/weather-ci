@@ -1,0 +1,247 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: 'Inter', sans-serif;
+  color: #202b46;
+}
+
+button,
+input {
+  font: inherit;
+}
+
+.page {
+  min-height: 100vh;
+  padding: 40px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background:
+    radial-gradient(ellipse at top left, #dceaff, transparent 50%),
+    linear-gradient(135deg, #f2f5ff, #f9efff);
+}
+
+.weather-card {
+  width: 100%;
+  max-width: 650px;
+  padding: 42px;
+  border: 1px solid rgba(255, 255, 255, 0.9);
+  border-radius: 28px;
+  background: rgba(255, 255, 255, 0.92);
+  box-shadow: 0 24px 70px rgba(69, 77, 135, 0.12);
+  text-align: center;
+}
+
+.eyebrow {
+  color: #7472d8;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 3px;
+}
+
+h1 {
+  margin: 14px 0 10px;
+  color: #172554;
+  font-size: clamp(28px, 5vw, 36px);
+  font-weight: 800;
+  letter-spacing: -1px;
+}
+
+.subtitle {
+  margin-bottom: 30px;
+  color: #78839a;
+  font-size: 15px;
+  line-height: 1.7;
+}
+
+.search-form {
+  display: flex;
+  gap: 10px;
+  padding: 7px;
+  border: 1px solid #e6e9f3;
+  border-radius: 16px;
+  background: #f8f9fd;
+}
+
+.search-form input {
+  width: 100%;
+  min-width: 0;
+  padding: 12px;
+  border: none;
+  outline: none;
+  border-radius: 8px;
+  background: transparent;
+  color: #202b46;
+  font-size: 14px;
+}
+
+.search-form input::placeholder {
+  color: #9ba4b7;
+}
+
+.search-form input:focus-visible {
+  outline: 2px solid #b7b5ff;
+}
+
+.search-form button {
+  padding: 13px 23px;
+  border: none;
+  border-radius: 11px;
+  background: #6965d9;
+  color: white;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.2s;
+}
+
+.search-form button:hover {
+  background: #514cc5;
+  transform: translateY(-1px);
+}
+
+.search-form button:disabled {
+  opacity: 0.6;
+  cursor: wait;
+}
+
+.weather-result {
+  margin-top: 28px;
+  padding: 28px 18px 20px;
+  border: 1px solid #e9eaff;
+  border-radius: 22px;
+  background: linear-gradient(145deg, #f0f2ff, #f8f5ff);
+  animation: appear 0.35s ease;
+}
+
+.weather-result h2 {
+  margin: 0;
+  color: #172554;
+  font-size: 22px;
+  font-weight: 700;
+  overflow-wrap: anywhere;
+}
+
+.condition {
+  margin: 10px 0 0;
+  color: #777e98;
+  font-size: 14px;
+}
+
+.temperature {
+  margin: 8px 0 22px;
+  color: #5551c5;
+  font-size: clamp(48px, 9vw, 68px);
+  font-weight: 800;
+  letter-spacing: -3px;
+  line-height: 1.2;
+}
+
+.details {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.detail {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  min-width: 0;
+  padding: 18px 6px;
+  border: 1px solid #eeeefa;
+  border-radius: 15px;
+  background: white;
+}
+
+.detail span {
+  color: #8992a8;
+  font-size: 12px;
+}
+
+.detail strong {
+  color: #303957;
+  font-size: 14px;
+  overflow-wrap: anywhere;
+}
+
+.error-message {
+  margin-top: 18px;
+  padding: 13px;
+  border: 1px solid #ffd8dc;
+  border-radius: 12px;
+  background: #fff0f1;
+  color: #b4233b;
+  font-size: 14px;
+}
+
+.loading-message {
+  margin-top: 24px;
+  color: #6965d9;
+  font-size: 14px;
+}
+
+.footer {
+  margin: 28px 0 0;
+  color: #9ba3b5;
+  font-size: 11px;
+}
+
+@keyframes appear {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 520px) {
+  .page {
+    padding: 20px 12px;
+  }
+
+  .weather-card {
+    padding: 28px 17px;
+    border-radius: 22px;
+  }
+
+  .search-form {
+    flex-direction: column;
+  }
+
+  .search-form button {
+    width: 100%;
+  }
+
+  .temperature {
+    font-size: 52px;
+    letter-spacing: -2px;
+  }
+
+  .details {
+    gap: 7px;
+  }
+
+  .detail {
+    padding: 14px 3px;
+  }
+
+  .detail span {
+    font-size: 10px;
+  }
+
+  .detail strong {
+    font-size: 12px;
+  }
+}
