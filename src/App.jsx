@@ -142,3 +142,6 @@ function App() {
 }
 
 export default App;
+test('CI failure demonstration', () => {
+  expect(1 + 1).toBe(5);
+});
