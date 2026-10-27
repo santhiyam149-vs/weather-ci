@@ -1,13 +1,11 @@
-
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
-
+```css
 * {
   box-sizing: border-box;
 }
 
 body {
   margin: 0;
-  font-family: 'Inter', sans-serif;
+  font-family: Arial, sans-serif;
   color: #202b46;
 }
 
@@ -22,18 +20,15 @@ input {
   display: flex;
   align-items: center;
   justify-content: center;
-  background:
-    radial-gradient(ellipse at top left, #dceaff, transparent 50%),
-    linear-gradient(135deg, #f2f5ff, #f9efff);
+  background: linear-gradient(135deg, #dceaff, #f9efff);
 }
 
 .weather-card {
   width: 100%;
   max-width: 650px;
   padding: 42px;
-  border: 1px solid rgba(255, 255, 255, 0.9);
   border-radius: 28px;
-  background: rgba(255, 255, 255, 0.92);
+  background: white;
   box-shadow: 0 24px 70px rgba(69, 77, 135, 0.12);
   text-align: center;
 }
@@ -41,16 +36,14 @@ input {
 .eyebrow {
   color: #7472d8;
   font-size: 11px;
-  font-weight: 800;
+  font-weight: bold;
   letter-spacing: 3px;
 }
 
 h1 {
   margin: 14px 0 10px;
   color: #172554;
-  font-size: clamp(28px, 5vw, 36px);
-  font-weight: 800;
-  letter-spacing: -1px;
+  font-size: 36px;
 }
 
 .subtitle {
@@ -75,10 +68,8 @@ h1 {
   padding: 12px;
   border: none;
   outline: none;
-  border-radius: 8px;
   background: transparent;
   color: #202b46;
-  font-size: 14px;
 }
 
 .search-form input::placeholder {
@@ -95,14 +86,12 @@ h1 {
   border-radius: 11px;
   background: #6965d9;
   color: white;
-  font-weight: 600;
+  font-weight: bold;
   cursor: pointer;
-  transition: background 0.2s, transform 0.2s;
 }
 
 .search-form button:hover {
   background: #514cc5;
-  transform: translateY(-1px);
 }
 
 .search-form button:disabled {
@@ -113,9 +102,8 @@ h1 {
 .weather-result {
   margin-top: 28px;
   padding: 28px 18px 20px;
-  border: 1px solid #e9eaff;
   border-radius: 22px;
-  background: linear-gradient(145deg, #f0f2ff, #f8f5ff);
+  background: #f0f2ff;
   animation: appear 0.35s ease;
 }
 
@@ -123,12 +111,11 @@ h1 {
   margin: 0;
   color: #172554;
   font-size: 22px;
-  font-weight: 700;
   overflow-wrap: anywhere;
 }
 
 .condition {
-  margin: 10px 0 0;
+  margin-top: 10px;
   color: #777e98;
   font-size: 14px;
 }
@@ -136,15 +123,13 @@ h1 {
 .temperature {
   margin: 8px 0 22px;
   color: #5551c5;
-  font-size: clamp(48px, 9vw, 68px);
-  font-weight: 800;
-  letter-spacing: -3px;
-  line-height: 1.2;
+  font-size: 60px;
+  font-weight: bold;
 }
 
 .details {
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-columns: repeat(3, 1fr);
   gap: 12px;
 }
 
@@ -152,11 +137,8 @@ h1 {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
   gap: 10px;
-  min-width: 0;
   padding: 18px 6px;
-  border: 1px solid #eeeefa;
   border-radius: 15px;
   background: white;
 }
@@ -175,7 +157,6 @@ h1 {
 .error-message {
   margin-top: 18px;
   padding: 13px;
-  border: 1px solid #ffd8dc;
   border-radius: 12px;
   background: #fff0f1;
   color: #b4233b;
@@ -189,7 +170,7 @@ h1 {
 }
 
 .footer {
-  margin: 28px 0 0;
+  margin-top: 28px;
   color: #9ba3b5;
   font-size: 11px;
 }
@@ -213,7 +194,6 @@ h1 {
 
   .weather-card {
     padding: 28px 17px;
-    border-radius: 22px;
   }
 
   .search-form {
@@ -226,7 +206,6 @@ h1 {
 
   .temperature {
     font-size: 52px;
-    letter-spacing: -2px;
   }
 
   .details {
@@ -245,4 +224,4 @@ h1 {
     font-size: 12px;
   }
 }
-/* Small test change for Git commit */
+```
