@@ -5,8 +5,7 @@
 
 body {
   margin: 0;
-  font-family: Arial, sans-serif;
-  color: #202b46;
+
 }
 
 button,
@@ -224,4 +223,5 @@ h1 {
     font-size: 12px;
   }
 }
-```
+
+``
