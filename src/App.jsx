@@ -141,7 +141,6 @@ function App() {
   );
 }
 
-export default App;
-test('CI failure demonstration', () => {
-  expect(1 + 1).toBe(5);
+test('Weather dashboard shows incorrect temperature', () => {
+  expect(25).toBe(30);
 });
