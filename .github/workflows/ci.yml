@@ -1,4 +1,5 @@
-name: Weather Dashboard CI
+name: Weather Dashboard CI Workflow
+
 
 on:
   push:
