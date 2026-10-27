@@ -147,3 +147,5 @@ export default App;
 
 <p>Testing my code before commit!</p>
 >>>>>>> 610832d91b2b5b83aa6f0a9ef07e4f354d19c87b
+
+export default App;
