@@ -79,7 +79,7 @@ function App() {
   return (
     <main className="page">
       <section className="weather-card">
-        <p className="eyebrow">Climate Reporting</p>
+        <p className="eyebrow">Weather deatails</p>
         <h1>Weather Dashboard</h1>
         <p className="subtitle">
           Find the current weather in any city.
