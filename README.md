@@ -3,7 +3,6 @@
 **College Practical Experiment:**  
 *"To design and execute a Continuous Integration workflow using GitHub Actions to automatically build and test an application."*
 
----
 
 ## 1. Project Title
 **Weather Forecast Dashboard (CI/CD Automated Workflow)**
